@@ -2,6 +2,11 @@
 
 ## Le Jeu
 
+<div style="display:flex;gap:16px;justify-content:center;margin-bottom:24px">
+  <img src="assets/screenshot-title.webp" alt="Écran titre" style="width:220px;border-radius:16px;box-shadow:0 4px 20px rgba(0,0,0,0.5)">
+  <img src="assets/screenshot-gameplay.webp" alt="Gameplay — La Cave" style="width:220px;border-radius:16px;box-shadow:0 4px 20px rgba(0,0,0,0.5)">
+</div>
+
 **Tire avant que les charges syndic explosent !** est un shoot'em up humoristique pour iPhone et iPad dont l'action se déroule dans une copropriété.
 
 Inspiré de Space Invaders, le joueur incarne un résident qui doit repousser les envahisseurs de chaque local du bâtiment — la cave, le garage, le jardin, la banque… — avant que les charges de copropriété n'atteignent des sommets. Neuf niveaux, chacun avec ses ennemis thématiques, sa musique et son bonus exclusif.
