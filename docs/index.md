@@ -1,11 +1,16 @@
 # LCSGameKit
 
-**LCSGameKit** est un package Swift qui fournit l'intégralité du moteur de jeu pour l'application *Tire avant que les charges syndic explosent !* — un shoot'em up humoristique à thème de copropriété.
+## Le Jeu
 
-## À propos du jeu
+**Tire avant que les charges syndic explosent !** est un shoot'em up humoristique pour iPhone et iPad dont l'action se déroule dans une copropriété.
 
-Le joueur incarne un résident d'une copropriété et doit éliminer les envahisseurs de chaque local (cave, garage, jardin…) avant que les charges de copropriété n'explosent.  
-Le principe est celui d'un Space Invaders revisité : vagues d'ennemis descendants, tir vers le haut, bonus à intercepter.
+Inspiré de Space Invaders, le joueur incarne un résident qui doit repousser les envahisseurs de chaque local du bâtiment — la cave, le garage, le jardin, la banque… — avant que les charges de copropriété n'atteignent des sommets. Neuf niveaux, chacun avec ses ennemis thématiques, sa musique et son bonus exclusif.
+
+[:material-apple: Télécharger sur l'App Store](https://games.apple.com/fr/game/6770456492){ .md-button .md-button--primary }
+
+---
+
+**LCSGameKit** est le package Swift qui fournit l'intégralité du moteur de jeu de cette application.
 
 ## Ce que contient le package
 
