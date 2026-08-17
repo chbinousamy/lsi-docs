@@ -1,0 +1,44 @@
+site_name: LCSGameKit
+site_description: Documentation du package Swift LCSGameKit — moteur de jeu et guide utilisateur
+docs_dir: docs
+
+theme:
+  name: material
+  language: fr
+  palette:
+    scheme: slate
+    primary: deep orange
+    accent: orange
+  font:
+    text: Roboto
+    code: Roboto Mono
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - content.code.annotate
+    - content.tabs.link
+
+markdown_extensions:
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - admonition
+  - pymdownx.details
+  - attr_list
+  - tables
+
+nav:
+  - Accueil: index.md
+  - Architecture:
+    - Vue d'ensemble: architecture/overview.md
+    - Composants: architecture/components.md
+    - Flux de données: architecture/data-flow.md
+  - Guide utilisateur:
+    - Les niveaux: user-guide/levels.md
+    - Commandes: user-guide/controls.md
+    - Paramètres: user-guide/settings.md
