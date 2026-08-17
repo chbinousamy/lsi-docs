@@ -1,0 +1,1501 @@
+
+<!doctype html>
+<html lang="fr" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentation du package Swift LCSGameKit — moteur de jeu et guide utilisateur">
+      
+      
+      
+      
+        <link rel="prev" href="../../architecture/data-flow/">
+      
+      
+        <link rel="next" href="../controls/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Les niveaux - LCSGameKit</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="deep-orange" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#les-niveaux" class="md-skip">
+          Aller au contenu
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="En-tête">
+    <a href="../.." title="LCSGameKit" class="md-header__button md-logo" aria-label="LCSGameKit" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            LCSGameKit
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Les niveaux
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Rechercher" placeholder="Rechercher" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Recherche">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Effacer" aria-label="Effacer" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initialisation de la recherche
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Onglets" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Accueil
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../architecture/overview/" class="md-tabs__link">
+          
+  
+  
+  Architecture
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+  
+  Guide utilisateur
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="LCSGameKit" class="md-nav__button md-logo" aria-label="LCSGameKit" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    LCSGameKit
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Accueil
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Architecture
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vue d'ensemble
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/components/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Composants
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/data-flow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Flux de données
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guide utilisateur
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Guide utilisateur
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Les niveaux
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Les niveaux
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tableau-recapitulatif" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tableau récapitulatif
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#detail-de-chaque-niveau" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Détail de chaque niveau
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Détail de chaque niveau">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#la-cave-gratuit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        La Cave (gratuit)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#la-banque" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        La Banque
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#le-garage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Le Garage
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#le-notaire" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Le Notaire
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#le-jardin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Le Jardin
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#le-bassin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Le Bassin
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linfirmerie" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        L'Infirmerie
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#la-salle-visio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        La Salle Visio
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#le-gymnase" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Le Gymnase
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#progression-visuelle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Progression visuelle
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mecanique-de-score-et-vies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mécanique de score et vies
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../controls/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Commandes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../settings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Paramètres
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tableau-recapitulatif" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tableau récapitulatif
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#detail-de-chaque-niveau" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Détail de chaque niveau
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Détail de chaque niveau">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#la-cave-gratuit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        La Cave (gratuit)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#la-banque" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        La Banque
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#le-garage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Le Garage
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#le-notaire" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Le Notaire
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#le-jardin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Le Jardin
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#le-bassin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Le Bassin
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linfirmerie" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        L'Infirmerie
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#la-salle-visio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        La Salle Visio
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#le-gymnase" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Le Gymnase
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#progression-visuelle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Progression visuelle
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mecanique-de-score-et-vies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mécanique de score et vies
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="les-niveaux">Les niveaux</h1>
+<p>Le jeu propose 9 niveaux, chacun situé dans un local différent de la copropriété. <strong>La Cave est gratuite</strong> ; les 8 autres nécessitent l'achat unique "Débloquer tous les niveaux".</p>
+<h2 id="tableau-recapitulatif">Tableau récapitulatif</h2>
+<table>
+<thead>
+<tr>
+<th>Niveau</th>
+<th>Local</th>
+<th>Héros</th>
+<th>Bonus</th>
+<th>Effet du bonus</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>La Cave</td>
+<td>🧹</td>
+<td>Balayeur</td>
+<td>🕸️ Toile</td>
+<td>Ralentit les ennemis 4 s</td>
+</tr>
+<tr>
+<td>La Banque</td>
+<td>👮</td>
+<td>Gardien</td>
+<td>🚨 Alarme</td>
+<td>Gèle les ennemis 3 s</td>
+</tr>
+<tr>
+<td>Le Garage</td>
+<td>🧑‍🔧</td>
+<td>Mécanicien</td>
+<td>🧯 Extincteur</td>
+<td>Supprime les tirs + pousse les ennemis</td>
+</tr>
+<tr>
+<td>Le Notaire</td>
+<td>👩‍⚖️</td>
+<td>Avocate</td>
+<td>📁 Classement</td>
+<td>Élimine tous les ennemis d'un même type</td>
+</tr>
+<tr>
+<td>Le Jardin</td>
+<td>🧑‍🌾</td>
+<td>Jardinier</td>
+<td>🌿 Taille-haie</td>
+<td>Efface toute la rangée du bas</td>
+</tr>
+<tr>
+<td>Le Bassin</td>
+<td>🤿</td>
+<td>Plongeur</td>
+<td>💊 Chlore</td>
+<td>Gèle les ennemis 4 s</td>
+</tr>
+<tr>
+<td>L'Infirmerie</td>
+<td>👩‍⚕️</td>
+<td>Infirmière</td>
+<td>🧴 Gel hydro</td>
+<td>Ralentit les ennemis 4 s</td>
+</tr>
+<tr>
+<td>La Salle Visio</td>
+<td>👨‍💼</td>
+<td>Manager</td>
+<td>🔇 Sourdine</td>
+<td>Supprime tous les tirs ennemis en vol</td>
+</tr>
+<tr>
+<td>Le Gymnase</td>
+<td>🧘</td>
+<td>Yogi</td>
+<td>🚿 Douche froide</td>
+<td>Ralentit les ennemis 4 s</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="detail-de-chaque-niveau">Détail de chaque niveau</h2>
+<h3 id="la-cave-gratuit">La Cave <em>(gratuit)</em></h3>
+<blockquote>
+<p><em>Elimine les nuisibles de la cave !</em></p>
+</blockquote>
+<p><strong>Projectile joueur :</strong> ✨  </p>
+<table>
+<thead>
+<tr>
+<th>Type ennemi</th>
+<th>Emoji</th>
+<th>Points</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Rat (variantA)</td>
+<td>🐀</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Cafard (variantB)</td>
+<td>🪳</td>
+<td>20</td>
+</tr>
+<tr>
+<td>Ver de terre (variantC)</td>
+<td>🪱</td>
+<td>30</td>
+</tr>
+<tr>
+<td>Moustique (variantD)</td>
+<td>🦟</td>
+<td>40</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Bonus — 🕸️ Toile :</strong> la toile d'araignée ralentit les ennemis à 45 % de leur vitesse normale pendant 4 secondes, et double leur intervalle de tir.</p>
+<hr />
+<h3 id="la-banque">La Banque</h3>
+<blockquote>
+<p><em>Nettoie la banque !</em></p>
+</blockquote>
+<p><strong>Projectile joueur :</strong> 💸  </p>
+<table>
+<thead>
+<tr>
+<th>Type ennemi</th>
+<th>Emoji</th>
+<th>Points</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Pièces (variantA)</td>
+<td>💰</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Carte bancaire (variantB)</td>
+<td>💳</td>
+<td>20</td>
+</tr>
+<tr>
+<td>Diamant (variantC)</td>
+<td>💎</td>
+<td>30</td>
+</tr>
+<tr>
+<td>Cadenas (variantD)</td>
+<td>🔐</td>
+<td>40</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Bonus — 🚨 Alarme :</strong> gèle totalement les ennemis pendant 3 secondes (plus court que les autres gels mais activé immédiatement).</p>
+<hr />
+<h3 id="le-garage">Le Garage</h3>
+<blockquote>
+<p><em>Degage le garage !</em></p>
+</blockquote>
+<p><strong>Projectile joueur :</strong> 🔩  </p>
+<table>
+<thead>
+<tr>
+<th>Type ennemi</th>
+<th>Emoji</th>
+<th>Points</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Roue (variantA)</td>
+<td>🛞</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Clé anglaise (variantB)</td>
+<td>🔧</td>
+<td>20</td>
+</tr>
+<tr>
+<td>Bidon d'huile (variantC)</td>
+<td>🛢️</td>
+<td>30</td>
+</tr>
+<tr>
+<td>Voiture (variantD)</td>
+<td>🚗</td>
+<td>40</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Bonus — 🧯 Extincteur :</strong> supprime tous les tirs ennemis en vol <strong>et</strong> repousse les ennemis vers les bords (direction opposée au centre).</p>
+<hr />
+<h3 id="le-notaire">Le Notaire</h3>
+<blockquote>
+<p><em>Range l'etude du notaire !</em></p>
+</blockquote>
+<p><strong>Projectile joueur :</strong> 📎  </p>
+<table>
+<thead>
+<tr>
+<th>Type ennemi</th>
+<th>Emoji</th>
+<th>Points</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Parchemin (variantA)</td>
+<td>📜</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Plume (variantB)</td>
+<td>🖋️</td>
+<td>20</td>
+</tr>
+<tr>
+<td>Bougie (variantC)</td>
+<td>🕯️</td>
+<td>30</td>
+</tr>
+<tr>
+<td>Reçu (variantD)</td>
+<td>🧾</td>
+<td>40</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Bonus — 📁 Classement :</strong> choisit aléatoirement un type d'ennemi encore présent et élimine <strong>tous</strong> les ennemis de ce type d'un coup. Peut déclencher la fin de vague.</p>
+<hr />
+<h3 id="le-jardin">Le Jardin</h3>
+<blockquote>
+<p><em>Dégage le jardin !</em></p>
+</blockquote>
+<p><strong>Projectile joueur :</strong> 💧  </p>
+<table>
+<thead>
+<tr>
+<th>Type ennemi</th>
+<th>Emoji</th>
+<th>Points</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Escargot (variantA)</td>
+<td>🐌</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Chenille (variantB)</td>
+<td>🐛</td>
+<td>20</td>
+</tr>
+<tr>
+<td>Guêpe (variantC)</td>
+<td>🐝</td>
+<td>30</td>
+</tr>
+<tr>
+<td>Champignon (variantD)</td>
+<td>🍄</td>
+<td>40</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Bonus — 🌿 Taille-haie :</strong> élimine d'un coup tous les ennemis de la <strong>rangée la plus basse</strong> (ceux qui tirent en premier).</p>
+<hr />
+<h3 id="le-bassin">Le Bassin</h3>
+<blockquote>
+<p><em>Nettoie le bassin !</em></p>
+</blockquote>
+<p><strong>Projectile joueur :</strong> 🧪  </p>
+<table>
+<thead>
+<tr>
+<th>Type ennemi</th>
+<th>Emoji</th>
+<th>Points</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Algue (variantA)</td>
+<td>🦠</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Grenouille (variantB)</td>
+<td>🐸</td>
+<td>20</td>
+</tr>
+<tr>
+<td>Canard (variantC)</td>
+<td>🦆</td>
+<td>30</td>
+</tr>
+<tr>
+<td>Maillot (variantD)</td>
+<td>🩱</td>
+<td>40</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Bonus — 💊 Chlore :</strong> gèle les ennemis 4 secondes (le plus long des effets de gel).</p>
+<hr />
+<h3 id="linfirmerie">L'Infirmerie</h3>
+<blockquote>
+<p><em>Désinfecte l'infirmerie !</em></p>
+</blockquote>
+<p><strong>Projectile joueur :</strong> 🩹  </p>
+<table>
+<thead>
+<tr>
+<th>Type ennemi</th>
+<th>Emoji</th>
+<th>Points</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Rhume (variantA)</td>
+<td>🤧</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Bactérie (variantB)</td>
+<td>🧫</td>
+<td>20</td>
+</tr>
+<tr>
+<td>Fièvre (variantC)</td>
+<td>🌡️</td>
+<td>30</td>
+</tr>
+<tr>
+<td>Seringue (variantD)</td>
+<td>💉</td>
+<td>40</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Bonus — 🧴 Gel hydro :</strong> ralentit les ennemis à 45 % de leur vitesse et double leur intervalle de tir pendant 4 secondes.</p>
+<hr />
+<h3 id="la-salle-visio">La Salle Visio</h3>
+<blockquote>
+<p><em>Rétablis la connexion !</em></p>
+</blockquote>
+<p><strong>Projectile joueur :</strong> 📶  </p>
+<table>
+<thead>
+<tr>
+<th>Type ennemi</th>
+<th>Emoji</th>
+<th>Points</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Écran (variantA)</td>
+<td>📺</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Micro (variantB)</td>
+<td>🎙️</td>
+<td>20</td>
+</tr>
+<tr>
+<td>Notification (variantC)</td>
+<td>🔔</td>
+<td>30</td>
+</tr>
+<tr>
+<td>Télécommande (variantD)</td>
+<td>🕹️</td>
+<td>40</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Bonus — 🔇 Sourdine :</strong> supprime instantanément tous les projectiles ennemis actuellement en vol.</p>
+<hr />
+<h3 id="le-gymnase">Le Gymnase</h3>
+<blockquote>
+<p><em>Nettoie le gymnase !</em></p>
+</blockquote>
+<p><strong>Projectile joueur :</strong> 🏐  </p>
+<table>
+<thead>
+<tr>
+<th>Type ennemi</th>
+<th>Emoji</th>
+<th>Points</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Haltère (variantA)</td>
+<td>🏋️</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Acrobate (variantB)</td>
+<td>🤸</td>
+<td>20</td>
+</tr>
+<tr>
+<td>Boxeur (variantC)</td>
+<td>🥊</td>
+<td>30</td>
+</tr>
+<tr>
+<td>Short (variantD)</td>
+<td>🎽</td>
+<td>40</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Bonus — 🚿 Douche froide :</strong> ralentit les ennemis à 45 % de leur vitesse et double leur intervalle de tir pendant 4 secondes.</p>
+<hr />
+<h2 id="progression-visuelle">Progression visuelle</h2>
+<p>Chaque niveau propose jusqu'à 5 fonds différents qui évoluent au fil des vagues complétées :</p>
+<table>
+<thead>
+<tr>
+<th>Vagues complétées</th>
+<th>Fond</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>Image initiale (<code>&lt;level&gt;1</code>)</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Image 2 (<code>&lt;level&gt;2</code>)</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Image 3 (<code>&lt;level&gt;3</code>)</td>
+</tr>
+<tr>
+<td>15</td>
+<td>Image 4 (<code>&lt;level&gt;4</code>)</td>
+</tr>
+<tr>
+<td>20</td>
+<td>Image 5 (<code>&lt;level&gt;5</code>)</td>
+</tr>
+</tbody>
+</table>
+<p>La transition se fait par un fondu enchaîné de 1,2 secondes.</p>
+<h2 id="mecanique-de-score-et-vies">Mécanique de score et vies</h2>
+<ul>
+<li>Chaque ennemi détruit rapporte des <strong>points en euros</strong> (selon son type).</li>
+<li>Intercepter un bonus rapporte <strong>100 €</strong>.</li>
+<li>Une <strong>vie supplémentaire</strong> est accordée tous les <strong>1 000 € de score</strong>, dans la limite de 3 vies.</li>
+<li>Le jeu se termine si un ennemi touche le joueur directement, si le joueur est touché 3 fois par des tirs ennemis, ou si la grille d'ennemis descend trop bas (y ≤ 80 × scale).</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "content.code.annotate", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,1506 @@
+
+<!doctype html>
+<html lang="fr" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentation du package Swift LCSGameKit — moteur de jeu et guide utilisateur">
+      
+      
+      
+      
+        <link rel="prev" href="../overview/">
+      
+      
+        <link rel="next" href="../data-flow/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Composants - LCSGameKit</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="deep-orange" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#composants" class="md-skip">
+          Aller au contenu
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="En-tête">
+    <a href="../.." title="LCSGameKit" class="md-header__button md-logo" aria-label="LCSGameKit" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            LCSGameKit
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Composants
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Rechercher" placeholder="Rechercher" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Recherche">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Effacer" aria-label="Effacer" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initialisation de la recherche
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Onglets" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Accueil
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../overview/" class="md-tabs__link">
+          
+  
+  
+  Architecture
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../user-guide/levels/" class="md-tabs__link">
+          
+  
+  
+  Guide utilisateur
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="LCSGameKit" class="md-nav__button md-logo" aria-label="LCSGameKit" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    LCSGameKit
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Accueil
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Architecture
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vue d'ensemble
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Composants
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Composants
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#lcsmenuview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LCSMenuView
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="LCSMenuView">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#responsabilites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Responsabilités
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interface-publique" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Interface publique
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lcsgameview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LCSGameView
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="LCSGameView">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fonctionnement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fonctionnement
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gamescene" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GameScene
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="GameScene">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#systeme-de-physique" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Système de physique
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mecanique-de-vague" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mécanique de vague
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modes-de-tir-joueur" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Modes de tir joueur
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gestion-du-fond-progressif" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gestion du fond progressif
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lcslevel-leveltheme" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LCSLevel &amp; LevelTheme
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#soundmanager" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SoundManager
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="SoundManager">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#effets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Effets
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lcsgamepadmanager-triggermode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LCSGamepadManager &amp; TriggerMode
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#highscorestore" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HighScoreStore
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#statsstore" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        StatsStore
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gamecentermanager" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GameCenterManager
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="GameCenterManager">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#classements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Classements
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#succes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Succès
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#purchasestore" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PurchaseStore
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data-flow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Flux de données
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guide utilisateur
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Guide utilisateur
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/levels/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Les niveaux
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/controls/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Commandes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/settings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Paramètres
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#lcsmenuview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LCSMenuView
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="LCSMenuView">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#responsabilites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Responsabilités
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interface-publique" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Interface publique
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lcsgameview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LCSGameView
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="LCSGameView">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fonctionnement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fonctionnement
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gamescene" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GameScene
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="GameScene">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#systeme-de-physique" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Système de physique
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mecanique-de-vague" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mécanique de vague
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modes-de-tir-joueur" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Modes de tir joueur
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gestion-du-fond-progressif" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gestion du fond progressif
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lcslevel-leveltheme" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LCSLevel &amp; LevelTheme
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#soundmanager" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SoundManager
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="SoundManager">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#effets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Effets
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lcsgamepadmanager-triggermode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LCSGamepadManager &amp; TriggerMode
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#highscorestore" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HighScoreStore
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#statsstore" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        StatsStore
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gamecentermanager" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GameCenterManager
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="GameCenterManager">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#classements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Classements
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#succes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Succès
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#purchasestore" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PurchaseStore
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="composants">Composants</h1>
+<h2 id="lcsmenuview">LCSMenuView</h2>
+<p><strong>Fichier :</strong> <code>LCSMenuView.swift</code><br />
+<strong>Type :</strong> <code>public struct LCSMenuView: View</code></p>
+<p>Point d'entrée public du package. C'est le seul type que l'application hôte instancie.</p>
+<h3 id="responsabilites">Responsabilités</h3>
+<ul>
+<li>Routeur principal : maintient <code>currentScreen: AppScreen</code> et détermine quelle vue afficher</li>
+<li>Gère le cycle de vie d'une partie (démarrage, pause, game over, redémarrage)</li>
+<li>Coordonne les overlays : pause, saisie du nom pour le high score, paywall</li>
+<li>Connecte <code>LCSGamepadManager</code> au menu via <code>LCSGamepadMenuCoordinator</code></li>
+</ul>
+<h3 id="interface-publique">Interface publique</h3>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">struct</span><span class="w"> </span><span class="nc">LCSMenuView</span><span class="p">:</span><span class="w"> </span><span class="n">View</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">init</span><span class="p">(</span><span class="n">onExitToNikolai</span><span class="p">:</span><span class="w"> </span><span class="p">(()</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nb">Void</span><span class="p">)?</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="kc">nil</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Le paramètre <code>onExitToNikolai</code> est optionnel ; s'il est fourni, un bouton "← Nikolai" apparaît en haut de l'écran titre pour permettre à l'utilisateur de revenir à l'application hôte.</p>
+<hr />
+<h2 id="lcsgameview">LCSGameView</h2>
+<p><strong>Fichier :</strong> <code>LCSGameView.swift</code><br />
+<strong>Type :</strong> <code>public struct LCSGameView: View</code></p>
+<p>Pont entre SwiftUI et SpriteKit. Crée et héberge la <code>GameScene</code>.</p>
+<h3 id="fonctionnement">Fonctionnement</h3>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">struct</span><span class="w"> </span><span class="nc">LCSGameView</span><span class="p">:</span><span class="w"> </span><span class="n">View</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">init</span><span class="p">(</span>
+<span class="w">        </span><span class="n">gamepadManager</span><span class="p">:</span><span class="w"> </span><span class="n">LCSGamepadManager</span><span class="p">,</span>
+<span class="w">        </span><span class="n">level</span><span class="p">:</span><span class="w"> </span><span class="n">LCSLevel</span><span class="p">,</span>
+<span class="w">        </span><span class="n">sessionID</span><span class="p">:</span><span class="w"> </span><span class="n">UUID</span><span class="p">,</span><span class="w">           </span><span class="c1">// changé pour forcer la recréation de la scène</span>
+<span class="w">        </span><span class="n">onExitToTitle</span><span class="p">:</span><span class="w"> </span><span class="p">@</span><span class="n">escaping</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nb">Void</span><span class="p">,</span>
+<span class="w">        </span><span class="n">onGameOver</span><span class="p">:</span><span class="w"> </span><span class="p">@</span><span class="n">escaping</span><span class="w"> </span><span class="p">(</span><span class="nb">Int</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nb">Void</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="kc">_</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="p">},</span>
+<span class="w">        </span><span class="n">onLevelStats</span><span class="p">:</span><span class="w"> </span><span class="p">@</span><span class="n">escaping</span><span class="w"> </span><span class="p">(</span><span class="n">LevelStats</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nb">Void</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="kc">_</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="p">},</span>
+<span class="w">        </span><span class="n">isPaused</span><span class="p">:</span><span class="w"> </span><span class="n">Binding</span><span class="p">&lt;</span><span class="nb">Bool</span><span class="p">&gt;</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">.</span><span class="n">constant</span><span class="p">(</span><span class="kc">false</span><span class="p">)</span>
+<span class="w">    </span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Le <code>sessionID</code> est régénéré à chaque démarrage/redémarrage de partie, ce qui déclenche la recréation de la <code>GameScene</code> via le <code>onChange</code> sur ce binding.</p>
+<hr />
+<h2 id="gamescene">GameScene</h2>
+<p><strong>Fichier :</strong> <code>GameScene.swift</code><br />
+<strong>Type :</strong> <code>final class GameScene: SKScene</code></p>
+<p>Contient toute la logique de jeu SpriteKit. Annotée <code>@MainActor</code>.</p>
+<h3 id="systeme-de-physique">Système de physique</h3>
+<p>Les catégories de collision sont définies avec des masques de bits :</p>
+<table>
+<thead>
+<tr>
+<th>Catégorie</th>
+<th>Masque</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>player</code></td>
+<td><code>0b00001</code></td>
+</tr>
+<tr>
+<td><code>playerBullet</code></td>
+<td><code>0b00010</code></td>
+</tr>
+<tr>
+<td><code>enemy</code></td>
+<td><code>0b00100</code></td>
+</tr>
+<tr>
+<td><code>enemyBullet</code></td>
+<td><code>0b01000</code></td>
+</tr>
+<tr>
+<td><code>bonus</code></td>
+<td><code>0b10000</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="mecanique-de-vague">Mécanique de vague</h3>
+<p>À chaque vague, une grille d'ennemis est générée :</p>
+<ul>
+<li><strong>Colonnes :</strong> <code>min(8, 5 + wave)</code></li>
+<li><strong>Lignes :</strong> <code>min(4, 2 + wave)</code></li>
+<li><strong>Vitesse ennemis :</strong> <code>(30 + (wave − 1) × 10) × scale</code> pt/s</li>
+<li><strong>Intervalle de tir ennemi :</strong> <code>max(0.8, 2.0 − (wave − 1) × 0.2)</code> secondes</li>
+</ul>
+<h3 id="modes-de-tir-joueur">Modes de tir joueur</h3>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Déclencheur</th>
+<th>Comportement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tir simple</td>
+<td>Touch / bouton A manette</td>
+<td>1 projectile droit, cooldown 250 ms</td>
+</tr>
+<tr>
+<td>Triple tir</td>
+<td>Touch prolongé / RB ou X manette</td>
+<td>3 projectiles en éventail (±160 × scale px/s), cooldown 250 ms</td>
+</tr>
+<tr>
+<td>Arbalète (manette RT)</td>
+<td>Gâchette droite, mode Arbalète</td>
+<td>1 projectile perçant, cooldown 550 ms</td>
+</tr>
+<tr>
+<td>Pulvérisateur (manette RT)</td>
+<td>Gâchette droite, mode Pulvérisateur</td>
+<td>5 projectiles en éventail, cooldown 100 ms</td>
+</tr>
+<tr>
+<td>Kärcher (manette RT)</td>
+<td>Gâchette droite, mode Kärcher</td>
+<td>2 projectiles parallèles, cooldown 180 ms</td>
+</tr>
+</tbody>
+</table>
+<h3 id="gestion-du-fond-progressif">Gestion du fond progressif</h3>
+<p>Le fond évolue tous les 5 niveaux complétés (jusqu'au niveau 20), via un crossfade de 600 ms.</p>
+<hr />
+<h2 id="lcslevel-leveltheme">LCSLevel &amp; LevelTheme</h2>
+<p><strong>Fichier :</strong> <code>LCSLevel.swift</code></p>
+<p><code>LCSLevel</code> est l'enum central qui identifie chacun des 9 niveaux. Chaque cas expose :</p>
+<ul>
+<li><code>backgroundImageName</code> : nom de l'image de fond dans <code>Assets.xcassets</code></li>
+<li><code>levelTitle</code>, <code>descriptionText</code>, <code>bonusText</code>, <code>previewEmojis</code></li>
+<li><code>isFree</code> : seul <code>.cave</code> est gratuit</li>
+<li><code>theme</code> : un <code>LevelTheme</code> qui encapsule les emojis héros, ennemis et bonus</li>
+</ul>
+<p><code>LevelTheme</code> est une structure qui associe à chaque <code>EnemyType</code> un emoji et un nom interne, et définit le bonus du niveau.</p>
+<hr />
+<h2 id="soundmanager">SoundManager</h2>
+<p><strong>Fichier :</strong> <code>SoundManager.swift</code><br />
+<strong>Type :</strong> <code>@MainActor final class SoundManager</code></p>
+<p>Singleton qui gère l'audio et les haptiques. Tous les effets sonores sont générés <strong>procéduralement</strong> via <code>AVAudioEngine</code> et <code>AVAudioPCMBuffer</code> ; il n'y a aucun fichier audio pour les effets.</p>
+<p>La musique de fond (<code>.m4a</code> / <code>.mp3</code>) est lue par un <code>AVAudioPlayer</code> distinct, en boucle infinie au volume 0.7.</p>
+<h3 id="effets">Effets</h3>
+<table>
+<thead>
+<tr>
+<th>Méthode</th>
+<th>Déclencheur</th>
+<th>Haptique</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>playShoot()</code></td>
+<td>Tir joueur</td>
+<td><code>.light</code> 40%</td>
+</tr>
+<tr>
+<td><code>playEnemyHit()</code></td>
+<td>Ennemi détruit</td>
+<td><code>.light</code> 60%</td>
+</tr>
+<tr>
+<td><code>playPlayerHit()</code></td>
+<td>Joueur touché</td>
+<td><code>.heavy</code> 100%</td>
+</tr>
+<tr>
+<td><code>playBonusHit()</code></td>
+<td>Bonus intercepté</td>
+<td><code>.success</code></td>
+</tr>
+<tr>
+<td><code>playWaveComplete()</code></td>
+<td>Fin de vague</td>
+<td><code>.success</code></td>
+</tr>
+<tr>
+<td><code>playGameOver()</code></td>
+<td>Fin de partie</td>
+<td><code>.error</code></td>
+</tr>
+<tr>
+<td><code>playExplosion()</code></td>
+<td>Mort joueur</td>
+<td><code>.medium</code></td>
+</tr>
+</tbody>
+</table>
+<p>Les manettes DualSense ont des haptiques dédiés via <code>CoreHaptics</code> / <code>CHHapticEngine</code>.</p>
+<hr />
+<h2 id="lcsgamepadmanager-triggermode">LCSGamepadManager &amp; TriggerMode</h2>
+<p><strong>Fichier :</strong> <code>LCSGamepadManager.swift</code></p>
+<p>Gère la connexion aux manettes MFi (et DualSense) via <code>GameController</code>. Il se branche sur les notifications <code>GCControllerDidConnect</code> / <code>GCControllerDidDisconnect</code> et configure les handlers d'entrée.</p>
+<p><code>TriggerMode</code> est un enum <code>public</code> qui définit le comportement de la gâchette droite :</p>
+<pre class="mermaid"><code>graph LR
+    RT[Gâchette droite RT] --&gt; |value ≥ threshold| FM{Mode actif}
+    FM --&gt; |Arbalète&lt;br/&gt;seuil 0.35| SA[1 tir perçant&lt;br/&gt;par pression]
+    FM --&gt; |Pulvérisateur&lt;br/&gt;seuil 0.15| SB[Rafale 5 projectiles&lt;br/&gt;auto toutes les 80 ms]
+    FM --&gt; |Kärcher&lt;br/&gt;seuil 0.20| SC[2 projectiles parallèles&lt;br/&gt;auto toutes les 150 ms]</code></pre>
+<p>Pour le DualSense, la résistance adaptative de la gâchette est configurée via <code>GCDualSenseGamepad</code> selon le mode sélectionné.</p>
+<hr />
+<h2 id="highscorestore">HighScoreStore</h2>
+<p><strong>Fichier :</strong> <code>HighScoreStore.swift</code></p>
+<p>Stocke jusqu'à <strong>3 meilleurs scores</strong> par niveau dans <code>UserDefaults</code> (clé <code>LCSHighScores</code>), encodés en JSON. Expose :</p>
+<ul>
+<li><code>topEntries(for:)</code> — top 3 triés par score décroissant</li>
+<li><code>rankIfQualified(score:for:)</code> — retourne le rang (1–3) si le score entre dans le top 3, sinon <code>nil</code></li>
+<li><code>save(score:playerName:for:)</code> — persiste l'entrée après sanitisation du nom (majuscules, 12 caractères max)</li>
+</ul>
+<hr />
+<h2 id="statsstore">StatsStore</h2>
+<p><strong>Fichier :</strong> <code>StatsStore.swift</code></p>
+<p>Agrège les statistiques cumulatives de jeu par niveau dans <code>UserDefaults</code> (préfixe <code>lcs.stats.&lt;level&gt;</code>).</p>
+<p>Métriques trackées par niveau :</p>
+<ul>
+<li>Kills cumulés, parties jouées, bonus activés</li>
+<li>Temps de jeu total</li>
+<li>Meilleur score, meilleure vague</li>
+<li>Tirs tirés / tirs touchés (→ précision)</li>
+</ul>
+<hr />
+<h2 id="gamecentermanager">GameCenterManager</h2>
+<p><strong>Fichier :</strong> <code>GameCenterManager.swift</code></p>
+<p>Gère l'authentification Game Center, la soumission des scores aux classements et le déclenchement des succès.</p>
+<h3 id="classements">Classements</h3>
+<p>Un classement par niveau (<code>scores.&lt;level&gt;</code>) + un classement total (<code>scores.total</code>) + un classement défi (<code>lsi.defi.score</code>).</p>
+<h3 id="succes">Succès</h3>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Condition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ach.first_eviction</code></td>
+<td>Terminer n'importe quelle partie</td>
+</tr>
+<tr>
+<td><code>ach.grand_score</code></td>
+<td>Score ≥ 10 000 en une partie</td>
+</tr>
+<tr>
+<td><code>ach.clean_sweep</code></td>
+<td>Compléter une vague sans se faire toucher</td>
+</tr>
+<tr>
+<td><code>ach.speedrun</code></td>
+<td>Compléter la 1ère vague en moins de 90 secondes</td>
+</tr>
+<tr>
+<td><code>ach.exterminator</code></td>
+<td>Éliminer 100 ennemis dans La Cave (cumulatif)</td>
+</tr>
+<tr>
+<td><code>ach.bonus_collector</code></td>
+<td>Activer 10 bonus (cumulatif toutes niveaux)</td>
+</tr>
+<tr>
+<td><code>ach.all_levels</code></td>
+<td>Jouer sur les 9 niveaux</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="purchasestore">PurchaseStore</h2>
+<p><strong>Fichier :</strong> <code>PurchaseStore.swift</code></p>
+<p>Gère l'achat unique "débloquer tous les niveaux" via StoreKit 2. Expose <code>isUnlocked: Bool</code> observable par SwiftUI. Le niveau La Cave est toujours gratuit (<code>LCSLevel.isFree</code>).</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "content.code.annotate", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>
